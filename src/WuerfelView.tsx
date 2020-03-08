@@ -2,6 +2,8 @@ import React from 'react';
 import {IconContext} from "react-icons";
 import {
     GiPerspectiveDiceSixFacesRandom,
+    GiThumbUp,
+    GiThumbDown,
     GiDiceSixFacesOne,
     GiDiceSixFacesTwo,
     GiDiceSixFacesThree,
@@ -9,17 +11,17 @@ import {
     GiDiceSixFacesFive,
     GiDiceSixFacesSix
 } from "react-icons/gi";
+import {DicesData} from "./Wuerfel";
 
 interface WuerfelViewProps {
-    dices: number[];
-    highlighted: boolean[];
+    dicesData: DicesData;
 }
 
 const numberToStyledDice = (eyes: number, hightlighed: boolean) => {
     return <IconContext.Provider
         value={{
             size: "2em",
-            style: {color: hightlighed ? "red" : "darkblue", backgroundColor: "inherit"}
+            style: {color: hightlighed ? "red" : "darkblue"}
         }}>{numberToDice(eyes)}</IconContext.Provider>
 };
 
@@ -43,10 +45,21 @@ const numberToDice = (eyes: number) => {
 };
 
 
-export const WuerfelView: React.FC<WuerfelViewProps> = ({dices, highlighted}) => {
-    return <>{dices.map((eyes, index) => {
-        return <span key={index}>
+export const WuerfelView: React.FC<WuerfelViewProps> = ({dicesData}) => {
+    return <div>
+        {dicesData.dices.map((eyes, index) => {
+            return <span key={index}>
             {index > 0 && index % 10 === 0 ? <span style={{marginLeft: "1em"}}/> : <></>}
-            <span title={String(eyes)}>{numberToStyledDice(eyes, highlighted[index])}</span></span>
-    })}</>;
+                <span title={String(eyes)}>{numberToStyledDice(eyes, dicesData.highlighted[index])}</span></span>
+        })}
+        {dicesData.matched !== undefined &&
+        <IconContext.Provider
+            value={{
+                size: "2em",
+                style: {color: dicesData.matched ? "green" : "red"}
+            }}><span style={{marginLeft: "1em"}}>
+            {dicesData.matched ? <GiThumbUp/> : <GiThumbDown/>}
+            </span>
+        </IconContext.Provider>}
+    </div>;
 };

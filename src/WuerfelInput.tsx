@@ -1,5 +1,6 @@
 import React, {SyntheticEvent, useState} from 'react';
 
+const MAX_NUMBER_OF_DICES = 100;
 interface WuerfelInputProps {
     initialValue: number
     onNumberOfDicesEntered: (numberOfDices: number) => void;
@@ -10,7 +11,7 @@ export const WuerfelInput: React.FC<WuerfelInputProps> = ({initialValue, onNumbe
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newValue = +e.target.value;
-        if (newValue < 100) {
+        if (newValue <= MAX_NUMBER_OF_DICES) {
             setNumberOfDices(newValue);
         }
         e.preventDefault()
@@ -21,7 +22,7 @@ export const WuerfelInput: React.FC<WuerfelInputProps> = ({initialValue, onNumbe
         e.preventDefault();
     };
 
-    return <form onSubmit={onEnter} style={{margin: "1em"}}>
+    return <form onSubmit={onEnter}>
         <label>Wie viele Würfel möchtest Du? <input style={{marginRight: "1em"}} value={numberOfDices > 0 ? numberOfDices : ''} onChange={onChange}/></label>
         <button onClick={onEnter}>Würfeln</button>
     </form>
