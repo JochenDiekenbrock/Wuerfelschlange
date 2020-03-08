@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
+import {WuerfelInput} from "./WuerfelInput";
+import {WuerfelView} from "./WuerfelView";
+
+const INITIAL_NUMBE_OF_DICES = 40;
+
+const getRandomEyes: () => number = () => Math.floor(Math.random() * 6 + 1);
+const rollDice: (numberOfDice: number) => number[] = (numberOfDice) => {
+    const dice: number[] = [];
+    for (let i = 0; i < numberOfDice; i++) {
+        dice.push(getRandomEyes());
+    }
+    return dice;
+};
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [dice, setDice] = useState<number[]>([]);
+    const [highlighted, setHighlighted] = useState<boolean[]>([]);
+    const onNumberOfDicesEntered = (numberOfDices: number) => {
+        calculateInitialDices(numberOfDices);
+    };
+
+    const calculateInitialDices = (numberOfDices: number) => {
+        const newDices = rollDice(numberOfDices);
+        setDice(newDices);
+        setHighlighted(newDices.map(_ => false))
+    };
+
+    useEffect(() => {
+        calculateInitialDices(INITIAL_NUMBE_OF_DICES);
+    }, []);
+
+
+    return (
+        <div className="App">
+            <WuerfelInput initialValue={INITIAL_NUMBE_OF_DICES} onNumberOfDicesEntered={onNumberOfDicesEntered}/>
+            <WuerfelView dices={dice} highlighted={highlighted}/>
+        </div>
+    );
 }
 
 export default App;
