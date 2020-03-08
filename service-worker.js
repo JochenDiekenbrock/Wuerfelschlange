@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/wuerfelschlange/precache-manifest.b650d1e3ab519853cf7aeed4c860176f.js"
+  "/wuerfelschlange/precache-manifest.48b5fc8e58dd3ad6fd73cac7dab9a152.js"
 );
 
 self.addEventListener('message', (event) => {

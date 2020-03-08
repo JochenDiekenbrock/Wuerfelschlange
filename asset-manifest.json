@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/wuerfelschlange/static/css/main.6d06e566.chunk.css",
-    "main.js": "/wuerfelschlange/static/js/main.d05fa66e.chunk.js",
-    "main.js.map": "/wuerfelschlange/static/js/main.d05fa66e.chunk.js.map",
+    "main.css": "/wuerfelschlange/static/css/main.f73451c3.chunk.css",
+    "main.js": "/wuerfelschlange/static/js/main.857c97ac.chunk.js",
+    "main.js.map": "/wuerfelschlange/static/js/main.857c97ac.chunk.js.map",
     "runtime-main.js": "/wuerfelschlange/static/js/runtime-main.66713cc9.js",
     "runtime-main.js.map": "/wuerfelschlange/static/js/runtime-main.66713cc9.js.map",
     "static/js/2.afbc1fca.chunk.js": "/wuerfelschlange/static/js/2.afbc1fca.chunk.js",
     "static/js/2.afbc1fca.chunk.js.map": "/wuerfelschlange/static/js/2.afbc1fca.chunk.js.map",
     "index.html": "/wuerfelschlange/index.html",
-    "precache-manifest.b650d1e3ab519853cf7aeed4c860176f.js": "/wuerfelschlange/precache-manifest.b650d1e3ab519853cf7aeed4c860176f.js",
+    "precache-manifest.48b5fc8e58dd3ad6fd73cac7dab9a152.js": "/wuerfelschlange/precache-manifest.48b5fc8e58dd3ad6fd73cac7dab9a152.js",
     "service-worker.js": "/wuerfelschlange/service-worker.js",
-    "static/css/main.6d06e566.chunk.css.map": "/wuerfelschlange/static/css/main.6d06e566.chunk.css.map",
+    "static/css/main.f73451c3.chunk.css.map": "/wuerfelschlange/static/css/main.f73451c3.chunk.css.map",
     "static/js/2.afbc1fca.chunk.js.LICENSE.txt": "/wuerfelschlange/static/js/2.afbc1fca.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.66713cc9.js",
     "static/js/2.afbc1fca.chunk.js",
-    "static/css/main.6d06e566.chunk.css",
-    "static/js/main.d05fa66e.chunk.js"
+    "static/css/main.f73451c3.chunk.css",
+    "static/js/main.857c97ac.chunk.js"
   ]
 }
